@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 # ==========================================
 # ROLE 1: LEAD DATA ARCHITECT
@@ -10,4 +10,14 @@ class UnifiedDocument(BaseModel):
     TODO: Khai báo các trường với kiểu dữ liệu str ở dưới.
     """
     # Khai báo các trường ở đây...
-    pass
+    document_id: str
+    source_type: str
+    author: str
+    category: str
+    content: str
+    timestamp: str
+
+    # Thêm config cho Pydantic (Pydantic V2)
+    model_config = ConfigDict(from_attributes=True)
+
+    
